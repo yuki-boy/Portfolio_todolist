@@ -17,7 +17,7 @@ class CreateTodolistsTable extends Migration
             $table->id();
             $table->string('task_name');
             $table->text('task_description');
-            $table->string('time');
+            $table->string('estimate_hour');
             $table->timestamps();
         });
     }

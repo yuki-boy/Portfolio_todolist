@@ -1,1 +1,1 @@
-todolist
+<a href="{{ route('create_todo') }}"><button type="button" class="btn btn-primary">タスクの追加</button></a>

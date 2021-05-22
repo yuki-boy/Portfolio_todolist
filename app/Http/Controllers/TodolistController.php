@@ -7,35 +7,37 @@ use Illuminate\Http\Request;
 
 class TodolistController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return view('todolist');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('create_todo');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+   
+    public function save(Request $request)
     {
-        //
+        $validatedDate = $request->validate([
+            'task_name' => 'required',
+            'task_description' => 'required',
+            'estimate_hour' => 'required',
+        ],
+        [
+            'task_name.required' => 'タスク名を入力して下さい',
+            'task_description.required' => 'タスク名を入力して下さい',
+            'estimate_hour.required' => 'タスク期限を入力して下さい',
+        ]);
+
+        $todo = new Todolist();
+        $todo->task_name = $request->task_name;
+        $todo->task_description = $request->task_description;
+        $todo->estimate_hour = $request->estimate_hour;
+        $todo->save();
+
+        return redirect('/todolist');
     }
 
     /**
