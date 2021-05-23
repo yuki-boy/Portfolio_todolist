@@ -13,8 +13,8 @@
       <td>{{ $todo->task_name }}</td>
       <td>{{ $todo->task_description }}</td>
       <td>{{ $todo->estimate_hour }}</td>
-      <td><a href=""><button type="button" class="btn btn-primary">タスクの編集</button></a></td>
-      <td><a href=""><button type="button" class="btn btn-primary">タスクの削除</button></a></td>
+      <td><a href="{{ route('edit_todo', ['id' => $todo->id]) }}"><button type="button" class="btn btn-primary">タスクの編集</button></a></td>
+      <td><a href="{{ route('delete_todo', ['id' => $todo->id]) }}"><button type="button" class="btn btn-primary">タスクの削除</button></a></td>
     </tr>
   @endforeach
 

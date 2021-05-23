@@ -10,6 +10,11 @@ use App\Http\Controllers\TodolistController;
 
 Route::get('/todolist', [TodolistController::class, 'index'])->name('todolist');
 
-Route::get('/create/todo', [TodolistController::class, 'create'])->name('create_todo');
+Route::get('/create_todo', [TodolistController::class, 'create'])->name('create_todo');
 
-Route::post('/save/todo', [TodolistController::class, 'save'])->name('save_todo');
+Route::post('/save_todo', [TodolistController::class, 'save'])->name('save_todo');
+
+Route::get('/edit_todo/{id}', [TodolistController::class, 'edit'])->name('edit_todo');
+
+
+Route::get('/delete_todo/{id}', [TodolistController::class, 'delete'])->name('delete_todo');
