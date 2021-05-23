@@ -9,7 +9,9 @@ class TodolistController extends Controller
 {
     public function index()
     {
-        return view('todolist');
+        $todos = Todolist::orderBy('id', 'asc')->get();
+
+        return view('todolist', compact('todos'));
     }
 
     public function create()
