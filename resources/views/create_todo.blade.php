@@ -13,3 +13,5 @@
   <p>タスクの時間：<input type="number" name="estimate_hour"></p>
   <input type="submit" name="create" value="追加">
 </form>
+
+<a href="{{ route('todolist') }}">戻る</a>

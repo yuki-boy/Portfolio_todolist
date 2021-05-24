@@ -42,48 +42,32 @@ class TodolistController extends Controller
         return redirect('/todolist');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Todolist  $todolist
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Todolist $todolist)
+    public function editPage($id)
     {
-        //
+        $todo = Todolist::find($id);
+        return view('edit_page', compact('todo'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Todolist  $todolist
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Todolist $todolist)
+    public function edit(Request $request, $id)
     {
-        //
+        Todolist::find($request->id)->update([
+            'task_name' => $request->task_name,
+            'task_description' => $request->task_description,
+            'estimate_hour' => $request->estimate_hour,
+        ]);
+
+        return redirect('/todolist');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Todolist  $todolist
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Todolist $todolist)
+    public function deletePage($id)
     {
-        //
+        $todo = Todolist::find($id);
+        return view('delete_page', compact('todo'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Todolist  $todolist
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Todolist $todolist)
+    public function delete($id)
     {
-        //
+        Todolist::find($id)->delete();
+        return redirect('/todolist');
     }
 }
