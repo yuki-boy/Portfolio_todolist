@@ -8,3 +8,5 @@
   <p>タスクの時間：{{ $todo->estimate_hour }}</p>
   <input type="submit" name="delete" value="削除">
 </form>
+
+<a href="{{ route('todolist') }}">戻る</a>

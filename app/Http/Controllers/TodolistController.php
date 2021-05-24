@@ -45,7 +45,7 @@ class TodolistController extends Controller
     public function editPage($id)
     {
         $todo = Todolist::find($id);
-        return view('edit_todo', compact('todo'));
+        return view('edit_page', compact('todo'));
     }
 
     public function edit(Request $request, $id)
@@ -62,7 +62,7 @@ class TodolistController extends Controller
     public function deletePage($id)
     {
         $todo = Todolist::find($id);
-        return view('delete_todo', compact('todo'));
+        return view('delete_page', compact('todo'));
     }
 
     public function delete($id)
