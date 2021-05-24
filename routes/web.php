@@ -14,8 +14,9 @@ Route::get('/create_todo', [TodolistController::class, 'create'])->name('create_
 
 Route::post('/save_todo', [TodolistController::class, 'save'])->name('save_todo');
 
-Route::get('/edit_todo/{id}', [TodolistController::class, 'edit'])->name('edit_todo');
+Route::get('/edit_page/{id}', [TodolistController::class, 'editPage'])->name('edit_page');
 
+Route::post('/edit_todo/{id}', [TodolistController::class, 'edit'])->name('edit_todo');
 
 Route::get('/delete_page/{id}', [TodolistController::class, 'deletePage'])->name('delete_page');
 

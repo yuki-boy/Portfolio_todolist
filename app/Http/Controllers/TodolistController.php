@@ -42,15 +42,21 @@ class TodolistController extends Controller
         return redirect('/todolist');
     }
 
-    public function edit($id)
+    public function editPage($id)
     {
-        $todo_id = Todolist::find($id);
-        return view('edit_todo', compact('todo_id'));
+        $todo = Todolist::find($id);
+        return view('edit_todo', compact('todo'));
     }
 
-    public function update(Request $request)
+    public function edit(Request $request, $id)
     {
-        //
+        Todolist::find($request->id)->update([
+            'task_name' => $request->task_name,
+            'task_description' => $request->task_description,
+            'estimate_hour' => $request->estimate_hour,
+        ]);
+
+        return redirect('/todolist');
     }
 
     public function deletePage($id)
