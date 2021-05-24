@@ -17,4 +17,6 @@ Route::post('/save_todo', [TodolistController::class, 'save'])->name('save_todo'
 Route::get('/edit_todo/{id}', [TodolistController::class, 'edit'])->name('edit_todo');
 
 
-Route::get('/delete_todo/{id}', [TodolistController::class, 'delete'])->name('delete_todo');
+Route::get('/delete_page/{id}', [TodolistController::class, 'deletePage'])->name('delete_page');
+
+Route::post('/delete_todo/{id}', [TodolistController::class, 'delete'])->name('delete_todo');
