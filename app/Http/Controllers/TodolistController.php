@@ -7,6 +7,34 @@ use Illuminate\Http\Request;
 
 class TodolistController extends Controller
 {
+    public function newindex()
+    {
+        $todos = Todolist::orderBy('id', 'asc')->get();
+
+        return view('index', compact('todos'));
+    }
+
+    public function save(Request $request)
+    {
+        $validatedDate = $request->validate(
+        ['task_name' => 'required',],
+        ['task_name.required' => 'タスク名を入力して下さい',]
+        );
+
+        $todo = new Todolist();
+        $todo->task_name = $request->task_name;
+        // $todo->task_description = $request->task_description;
+        // $todo->estimate_hour = $request->estimate_hour;
+        $todo->save();
+
+        return redirect('/index');
+    }
+
+
+
+
+
+
     public function index()
     {
         $todos = Todolist::orderBy('id', 'asc')->get();
@@ -20,27 +48,27 @@ class TodolistController extends Controller
     }
 
    
-    public function save(Request $request)
-    {
-        $validatedDate = $request->validate([
-            'task_name' => 'required',
-            'task_description' => 'required',
-            'estimate_hour' => 'required',
-        ],
-        [
-            'task_name.required' => 'タスク名を入力して下さい',
-            'task_description.required' => 'タスク名を入力して下さい',
-            'estimate_hour.required' => 'タスク期限を入力して下さい',
-        ]);
+    // public function save(Request $request)
+    // {
+    //     $validatedDate = $request->validate([
+    //         'task_name' => 'required',
+    //         'task_description' => 'required',
+    //         'estimate_hour' => 'required',
+    //     ],
+    //     [
+    //         'task_name.required' => 'タスク名を入力して下さい',
+    //         'task_description.required' => 'タスク名を入力して下さい',
+    //         'estimate_hour.required' => 'タスク期限を入力して下さい',
+    //     ]);
 
-        $todo = new Todolist();
-        $todo->task_name = $request->task_name;
-        $todo->task_description = $request->task_description;
-        $todo->estimate_hour = $request->estimate_hour;
-        $todo->save();
+    //     $todo = new Todolist();
+    //     $todo->task_name = $request->task_name;
+    //     $todo->task_description = $request->task_description;
+    //     $todo->estimate_hour = $request->estimate_hour;
+    //     $todo->save();
 
-        return redirect('/todolist');
-    }
+    //     return redirect('/todolist');
+    // }
 
     public function editPage($id)
     {

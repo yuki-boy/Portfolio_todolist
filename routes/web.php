@@ -8,6 +8,8 @@ use App\Http\Controllers\TodolistController;
 //     return view('welcome');
 // });
 
+Route::get('/index', [TodolistController::class, 'newindex'])->name('index');
+
 Route::get('/todolist', [TodolistController::class, 'index'])->name('todolist');
 
 Route::get('/create_todo', [TodolistController::class, 'create'])->name('create_todo');
