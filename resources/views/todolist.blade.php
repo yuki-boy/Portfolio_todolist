@@ -1,6 +1,8 @@
 @extends('layouts.view')
 @section('content')
 
+<a href="{{ route('index') }}">new</a>
+
 <div class="py-12">
   <div class="container">
 
@@ -31,6 +33,7 @@
 
   </div>
 </div>
+
 
 
 @endsection
