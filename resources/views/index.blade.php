@@ -8,6 +8,9 @@
 
 <h1>Tasks</h1>
 @foreach($todos as $todo)
-  <p>{{ $todo->task_name }}{{ $todo->created_at }}</p>
-
+{{ $todo->task_name }}
+{{ $todo->created_at }}
+<a href="{{ route('delete_todo', ['id' => $todo->id]) }}">削除</a>
+<br>
 @endforeach
+

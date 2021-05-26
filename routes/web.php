@@ -22,7 +22,7 @@ Route::post('/edit_todo/{id}', [TodolistController::class, 'edit'])->name('edit_
 
 Route::get('/delete_page/{id}', [TodolistController::class, 'deletePage'])->name('delete_page');
 
-Route::post('/delete_todo/{id}', [TodolistController::class, 'delete'])->name('delete_todo');
+Route::get('/delete_todo/{id}', [TodolistController::class, 'delete'])->name('delete_todo');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

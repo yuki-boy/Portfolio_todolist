@@ -30,6 +30,14 @@ class TodolistController extends Controller
         return redirect('/index');
     }
 
+    public function delete($id)
+    {
+        Todolist::find($id)->delete();
+        return redirect('/index');
+    }
+
+
+
 
 
 
@@ -93,9 +101,9 @@ class TodolistController extends Controller
         return view('delete_page', compact('todo'));
     }
 
-    public function delete($id)
-    {
-        Todolist::find($id)->delete();
-        return redirect('/todolist');
-    }
+    // public function delete($id)
+    // {
+    //     Todolist::find($id)->delete();
+    //     return redirect('/todolist');
+    // }
 }
