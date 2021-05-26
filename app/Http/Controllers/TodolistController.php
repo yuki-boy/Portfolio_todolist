@@ -43,17 +43,17 @@ class TodolistController extends Controller
 
 
 
-    public function index()
-    {
-        $todos = Todolist::orderBy('id', 'asc')->get();
+    // public function index()
+    // {
+    //     $todos = Todolist::orderBy('id', 'asc')->get();
 
-        return view('todolist', compact('todos'));
-    }
+    //     return view('todolist', compact('todos'));
+    // }
 
-    public function create()
-    {
-        return view('create_todo');
-    }
+    // public function create()
+    // {
+    //     return view('create_todo');
+    // }
 
    
     // public function save(Request $request)
@@ -78,28 +78,28 @@ class TodolistController extends Controller
     //     return redirect('/todolist');
     // }
 
-    public function editPage($id)
-    {
-        $todo = Todolist::find($id);
-        return view('edit_page', compact('todo'));
-    }
+    // public function editPage($id)
+    // {
+    //     $todo = Todolist::find($id);
+    //     return view('edit_page', compact('todo'));
+    // }
 
-    public function edit(Request $request, $id)
-    {
-        Todolist::find($request->id)->update([
-            'task_name' => $request->task_name,
-            'task_description' => $request->task_description,
-            'estimate_hour' => $request->estimate_hour,
-        ]);
+    // public function edit(Request $request, $id)
+    // {
+    //     Todolist::find($request->id)->update([
+    //         'task_name' => $request->task_name,
+    //         'task_description' => $request->task_description,
+    //         'estimate_hour' => $request->estimate_hour,
+    //     ]);
 
-        return redirect('/todolist');
-    }
+    //     return redirect('/todolist');
+    // }
 
-    public function deletePage($id)
-    {
-        $todo = Todolist::find($id);
-        return view('delete_page', compact('todo'));
-    }
+    // public function deletePage($id)
+    // {
+    //     $todo = Todolist::find($id);
+    //     return view('delete_page', compact('todo'));
+    // }
 
     // public function delete($id)
     // {
