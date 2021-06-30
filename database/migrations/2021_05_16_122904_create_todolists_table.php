@@ -16,8 +16,6 @@ class CreateTodolistsTable extends Migration
         Schema::create('todolists', function (Blueprint $table) {
             $table->id();
             $table->string('task_name');
-            $table->text('task_description');
-            $table->string('estimate_hour');
             $table->timestamps();
         });
     }
