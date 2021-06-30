@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodolistController;
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/index', [TodolistController::class, 'newindex'])->name('index');
 
@@ -16,7 +16,7 @@ Route::get('/delete_todo/{id}', [TodolistController::class, 'delete'])->name('de
 Auth::routes();
 
 
-// Route::get('/todolist', [TodolistController::class, 'index'])->name('todolist');
+Route::get('/todolist', [TodolistController::class, 'index'])->name('todolist');
 
 // Route::get('/create_todo', [TodolistController::class, 'create'])->name('create_todo');
 
@@ -26,4 +26,4 @@ Auth::routes();
 
 // Route::get('/delete_page/{id}', [TodolistController::class, 'deletePage'])->name('delete_page');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
