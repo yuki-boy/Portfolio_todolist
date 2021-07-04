@@ -5,7 +5,7 @@ use App\Http\Controllers\TodolistController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('map');
 });
 
 Route::get('/index', [TodolistController::class, 'newindex'])->name('index');
